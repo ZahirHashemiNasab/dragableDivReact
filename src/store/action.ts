@@ -60,19 +60,16 @@ export const exchangeElements = (sourceId:number|undefined,destinationId:number|
    
     return(dispatch:DispatchType) => 
     {
+        //in some situation for type of mouse event it may be generate undefined event.target
         if(sourceId && destinationId){
-        console.log("im in action" ,sourceId-1,destinationId-1 );
-        let sourceIndex = array.indexOf(sourceId-1);
-        console.log("sourceIndex" ,sourceIndex );
-        let destinationIndex = array.indexOf(destinationId-1);
-        console.log("destinationIndex" ,destinationIndex );
-        let temp:number;
-        temp = array[sourceIndex];
-        array[sourceIndex] = array[destinationIndex];
-        array[destinationIndex] = temp;
-        console.log("im in action array should be" ,array);
-
-        dispatch(exchangeArrayElement(array));
+        // swap to elements of array using temp
+            let sourceIndex = array.indexOf(sourceId-1);
+            let destinationIndex = array.indexOf(destinationId-1);
+            let temp:number;
+            temp = array[sourceIndex];
+            array[sourceIndex] = array[destinationIndex];
+            array[destinationIndex] = temp;
+            dispatch(exchangeArrayElement(array));
         }
         else return;
     };

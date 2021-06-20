@@ -1,3 +1,4 @@
+//helper function for determining grids element style
 export const gridAreaCalculation = (elementNumber:number) : string =>{
 
     switch (elementNumber) {

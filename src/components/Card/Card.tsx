@@ -8,7 +8,7 @@ import { removeElementById } from '../../store/action';
 const Card = (props: CardPropType) => {
   const dispatch = useDispatch();
   const state: AppStateType = useSelector((state: AppStateType) => state);
-
+  // id of each element(which shown in ui) starts from 1 but elementList style begin from 0
   const onElementDelete = (id: number) => {
     dispatch(removeElementById(id - 1, state.elementList));
   };

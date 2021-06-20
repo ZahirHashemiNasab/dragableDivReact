@@ -26,6 +26,9 @@ you can add 12 box at most.
 every box has a delete button which can delete the box.
 you also can swap boxes with drag a box and drop on another box.
 
+![image](https://user-images.githubusercontent.com/12884282/122670329-c39d3b00-d1d6-11eb-8e21-41ef98e53163.png)
+
+
 
 ### `persistance`
 if you even close the page App state persists in localStorage and state doesnt loose.

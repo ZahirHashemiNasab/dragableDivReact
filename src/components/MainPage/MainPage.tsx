@@ -1,32 +1,27 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import styles from './MainPage.module.css';
 import AddCircleRoundedIcon from '@material-ui/icons/AddCircleRounded';
-import AddCircleOutlinedIcon from '@material-ui/icons/AddCircleOutlined';
 import Icon from '@material-ui/core/Icon';
 import Grid from '../Grid/Grid';
+import { useDispatch, useSelector } from 'react-redux';
+import { AddElement, addCounter } from '../../store/action';
+import { AppStateType } from '../../types/type';
 
 const MainPage = () => {
-  let section = document.getElementById('grid');
-  const [cardCount, setCardCount] = useState<number>(0);
-  const [cardList, setCardList] = useState<number[]>([]);
+  const dispatch = useDispatch();
+  const state: AppStateType = useSelector((state: AppStateType) => state);
   const onAddCardClick = () => {
-    cardList.length < 12
-      ? setCardList([...cardList, cardCount])
-      : setCardList([...cardList]);
-
-    cardList.length < 12
-      ? setCardCount(cardCount + 1)
-      : setCardCount(cardCount);
+    dispatch(addCounter(state.cardCount + 1));
+    if (state.elementList.length < 12) {
+      dispatch(AddElement([...state.elementList, state.cardCount]));
+    }
   };
-  useEffect(() => {
-    console.log('counter', cardCount, cardList);
-  }, [cardCount]);
 
   return (
     <div className={styles.containerDiv}>
       <div className={styles.header}>UniClient</div>
       <div className={styles.content}>
-        <Grid cardList={[...cardList]} />
+        <Grid cardList={[...state.elementList]} />
       </div>
       <div className={styles.footer}>
         <AddCircleRoundedIcon

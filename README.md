@@ -34,6 +34,9 @@ you also can swap boxes with drag a box and drop on another box.
 if you even close the page App state persists in localStorage and state doesnt loose.
 you can test it with close and reopen the page.
 
+![image](https://user-images.githubusercontent.com/12884282/122670372-0828d680-d1d7-11eb-96c1-4374949aad3e.png)
+
+
 # Legaler
 FrontEnd Task Of Legaler
 >>>>>>> 09ce3a17edafb6a010de57e8bf15917e86ec1f80
